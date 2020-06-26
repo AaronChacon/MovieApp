@@ -1,0 +1,30 @@
+.logo{
+    color: $white;
+    font-family: $fonts-poppins;
+    text-align: center;
+    cursor: pointer;
+}
+
+.logo__logo-brand{
+    font-size: $s26;
+    /* &::before{
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        background: $dradient-a;
+        width: 25px;
+        height: 2px;
+
+    } */
+
+    &::after{
+        content: "";
+        position: absolute;
+        left: 0%;
+        bottom: 0;
+        background: $dradient-a;
+        width: 100%;
+        height: 2px;
+    }
+}

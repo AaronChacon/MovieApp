@@ -1,0 +1,96 @@
+<nav class="navbar navbar__darkBlue">
+    <div class="container-fluid">
+        <div class="col-8 col-lg-3 mx-auto my-3 my-lg-0">
+            <div class="navbar__brand">
+                <div class="logo logo__logo-brand">
+                    MOVIE APP
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mb-2 mt-4 my-lg-0 d-none d-lg-block">
+            <div class="navbar__menu">
+                <ul class="lists">
+                    <li>Inicio</li>
+                    <li>Estrenos</li>
+                    <li>Categorias</li>
+                    <li>Ruleta</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-sm-8 col-md-6 col-lg-3 mx-auto mb-2 mt-3 my-lg-0 d-none d-lg-block">
+            <form class="navbar__search" (ngSubmit)="searchMovie(searchMovieInput.value)">
+                <div class="input-group input-group__search">
+                    <input class="input input__search truncate" id="inputSearch" type="text"
+                        placeholder="Encuentra tus peliculas favoritas..." #searchMovieInput>
+                    <button class=" input__append__search">
+                        <label class="label__search__icon" for="inputSearch">
+                            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                <path fill-rule="evenodd"
+                                    d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                            </svg>
+                        </label>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar__darkBlue navbar--mobile  d-block d-lg-none"
+    [class.nav--active]="showNav"
+    >
+    <div class="row">
+        <div class="btn__close" (click)="toggleNav()" >
+            <svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+                <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+            </svg>
+        </div>
+        <div class="col-12 col-sm-11 mx-auto">
+            <div class="navbar__brand" [routerLink]="['/home']" >
+                <div class="logo logo__logo-brand">
+                    MOVIE APP
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 mx-auto">
+            <div class="navbar__menu">
+                <ul class="lists">
+                    <li [routerLink]="['/home']"  >Inicio</li>
+                    <li [routerLink]="['/routePath']"  >Estrenos</li>
+                    <li [routerLink]="['/routePath']"  >Categorias</li>
+                    <li [routerLink]="['/routePath']"  >Ruleta</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-sm-8 mx-auto">
+            <form class="navbar__search" (ngSubmit)="searchMovie(searchMovieInput.value)">
+                <div class="input-group input-group__search">
+                    <input class="input input__search truncate" id="inputSearch" type="text"
+                        placeholder="Encuentra tus peliculas favoritas..." #searchMovieInput>
+                    <button class=" input__append__search">
+                        <label class="label__search__icon" for="inputSearch">
+                            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                <path fill-rule="evenodd"
+                                    d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                            </svg>
+                        </label>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="btn__nav d-lg-none" (click)="toggleNav()">
+    <svg class="bi bi-plus" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+        <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+    </svg>
+</div>

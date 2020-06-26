@@ -1,0 +1,12 @@
+<div class="main__content">
+    <div class="container">
+      <p class="main__text--title" >{{titleSection}}</p>
+      <div class="line__text" ></div>
+    </div>
+    <swiper class="swiper-container" [config]="configSwipper">  
+      <div *ngFor="let movie of movies.results; let i ='index' " class="swiper-slide swiper-slide--small"
+        [routerLink]="['/movie', movie.id, 'home']"
+        [ngStyle]="{'background-image': 'url('+( movie | posterImg ) +')' }">
+      </div>
+    </swiper>
+  </div>

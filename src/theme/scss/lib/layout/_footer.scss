@@ -1,0 +1,30 @@
+.footer{
+    background: $bg-dark_blue;
+    min-height: 270px;
+    padding: 50px 70px 0 70px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    color: $white;
+    position: relative;
+}
+
+.footer__text{
+    color: $white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: right;
+    @include medium {
+        margin: 25px 0;
+        text-align: justify;
+    }
+}
+
+
+.img-f{
+    width: 50px;
+    margin-top: 20px;
+    @include medium {
+        margin-top: 25px;
+    }
+}

@@ -1,0 +1,38 @@
+<div class="main">
+    <div class="container pt-5">
+        <div class="col-12 col-md-10 col-lg-8 mx-auto">
+            <div class="form-group pt-5">
+                <label for="Search">Buscar</label>
+                <input type="text"
+                        [(ngModel)]="searchMovieInput"
+                        name="searchMovieInput"
+                        (keyup.enter)="searchMovie()"
+                        class="form-control"
+                        placeholder="Buscar pelicula"
+                        
+                        >
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card-deck pt-4">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4  mx-auto" *ngFor="let movie of _ms.moviesSearch; let i ='index'" >
+                        <div class="card mb-4">
+                          <img class="card-img-top" [src]=" movie | posterImg" [alt]="movie.title">
+                          <div class="card-body">
+                            <h5 class="card-title">{{movie.title}}</h5>
+                            <p class="card-text text-justitfy">{{movie.overview | slice:0:200}} </p>
+                            <button type="button" class="btn btn-outline-primary btn-block" 
+                                [routerLink]="['/movie', movie.id, 'search', searchMovieInput]" 
+                            >
+                            ver mas
+                            </button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

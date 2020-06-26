@@ -1,0 +1,26 @@
+//utils
+@import './lib/utils/variables';
+@import './lib/utils/_breakpoints.sass';
+
+//base
+@import './lib/base/_normalize';
+
+
+//layout
+@import './lib/layout/nav';
+@import './lib/layout/header';
+@import './lib/layout/main';
+@import './lib/layout/footer';
+
+//components
+@import './lib/components/elements';
+@import './lib/components/logo';
+@import './lib/components/input';
+@import './lib/components/carrousel';
+@import './lib/components/button';
+
+
+//vendor
+@import'./lib/vendors/animate';
+@import'./lib/vendors/swiper.scss';
+@import '~swiper/css/swiper.min.css';

@@ -1,0 +1,58 @@
+button:focus{
+    outline: none;
+}
+
+.btn__top{
+    position: initial;
+    right: 0px;
+    bottom: 50px;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $s30;
+    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
+    margin-left: auto;
+    background: $dradient-a;
+    cursor: pointer;
+    &:active{
+        transform: scale(0.95);
+    }
+
+}
+
+.btn__nav{
+    position: fixed;
+    right: 25px;
+    bottom: 10px;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $s30;
+    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
+    background: $dradient-a;
+    cursor: pointer;
+    &:active{
+        transform: scale(0.95);
+    }
+
+}
+
+.btn__close{
+    color: $white;
+    font-size: 35px;
+    position: absolute;
+    top: 0;
+    right: 9px;
+    cursor: pointer;
+    &:active{
+        transform: scale(0.95);
+    }
+}
