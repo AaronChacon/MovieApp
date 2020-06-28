@@ -1,7 +1,8 @@
 <nav class="navbar navbar__darkBlue">
     <div class="container-fluid">
         <div class="col-8 col-lg-3 mx-auto my-3 my-lg-0">
-            <div class="navbar__brand">
+            <div class="navbar__brand" [routerLink]="['/home']"
+            >
                 <div class="logo logo__logo-brand">
                     MOVIE APP
                 </div>
@@ -10,10 +11,9 @@
         <div class="col-12 col-lg-6 mb-2 mt-4 my-lg-0 d-none d-lg-block">
             <div class="navbar__menu">
                 <ul class="lists">
-                    <li>Inicio</li>
-                    <li>Estrenos</li>
-                    <li>Categorias</li>
-                    <li>Ruleta</li>
+                    <li [routerLink]="['/home']"  >Inicio</li>
+                    <li [routerLink]="['/routePath']"  >Ruleta</li>
+                    <li [routerLink]="['/search']"  >Search</li>
                 </ul>
             </div>
         </div>
@@ -60,9 +60,8 @@
             <div class="navbar__menu">
                 <ul class="lists">
                     <li [routerLink]="['/home']"  >Inicio</li>
-                    <li [routerLink]="['/routePath']"  >Estrenos</li>
-                    <li [routerLink]="['/routePath']"  >Categorias</li>
                     <li [routerLink]="['/routePath']"  >Ruleta</li>
+                    <li [routerLink]="['/search']"  >Search</li>
                 </ul>
             </div>
         </div>

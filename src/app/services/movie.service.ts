@@ -39,7 +39,7 @@ export class MovieService {
       results: string[];
     }
 
-    let url = `${this.urlMoviedb}/search/movie?api_key=${this.apikey}&query=${texto}`
+    let url = `${this.urlMoviedb}/search/movie?api_key=${this.apikey}&query=${texto}&language=es`
 
     return this.HttpClient.get<ItemsResponse>(url)
                 .pipe(map(res =>{
@@ -52,7 +52,7 @@ export class MovieService {
   }
 
   getMovie(id:string){
-    let url = `${this.urlMoviedb}/movie/${id}?api_key=${this.apikey}`;
+    let url = `${this.urlMoviedb}/movie/${id}?api_key=${this.apikey}&language=es`;
 
     return this.HttpClient.get(url)
                 .pipe(map(res => res))

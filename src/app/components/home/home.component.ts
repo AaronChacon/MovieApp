@@ -50,12 +50,6 @@ export class HomeComponent implements OnInit {
 
 
 
-
-
-
-
-
-
   //Swiper//
 
   public slides = [
@@ -192,9 +186,4 @@ export class HomeComponent implements OnInit {
     clickable: true,
     hideOnClick: false
   };
-
-  @ViewChild(SwiperComponent) componentRef: SwiperComponent;
-  @ViewChild(SwiperDirective) directiveRef: SwiperDirective;
-
-
 }

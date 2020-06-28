@@ -1,25 +1,45 @@
-<div *ngIf="movie" 
-    class="container mt-5" >
+<div class="main main__movie" *ngIf="movie" [ngStyle]="{'background-image': 'url('+( movie | movieImg ) +')' }">
 
-    <h2> {{movie.title}} </h2>
-
-    <div class="row">
-        <div class="col-12 col-md-5">
-            <img 
-                class="img-thumbnail img-fluid"
-                [src]="movie | posterImg" [alt]="movie.title">
-        </div>
-        <div class="col-12 col-md-7">
-            <h3>Sinopsis</h3>
-            <p class="text-justify" > {{movie.overview}} </p>
-            <p> {{movie.tagline}} </p>
-            <p> Calificacion {{movie.vote_average}} </p>
-
-            <button class="btn btn-primary" type="button" [routerLink]="['/'+returnTo, search ]" routerLinkActive="router-link-active"  >
-                regresar
-            </button>
+    <div class="container py-5 mb-5 d-flex align-items-center justify-content-center" >
+        <div class="row mb-5">
+            <div class="col-12 d-block d-lg-none">
+                <h2 class="movie_title my-5" > {{movie.title}} </h2>
+            </div>
+            <div class="col-9 col-md-5 col-lg-4 mx-auto">
+                <img  class="img-fluid img__details"
+                    [src]="movie | posterImg" [alt]="movie.title">
+                <!-- <button class="btn btn-primary btn__back  mt-5 d-none d-md-block" type="button" [routerLink]="['/'+returnTo, search ]" routerLinkActive="router-link-active"  >
+                    Regresar
+                </button> -->
+            </div>
+            <div class="col-12 col-md-7 col-lg-8">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="movie-title">
+                            <p class="movie_title mb-3 d-none d-lg-block" > {{movie.title}}</p>
+                            <hr class="d-none d-lg-block m bg-white" >
+                        </div>
+                        <div class="movie-content my-5">
+                            <p class="movie_subtitle mt-5 mt-lg-1" >Sinopsis</p>
+                            <p class="movie_text" > {{movie.overview}} </p>
+                            <p class="movie_text" > {{movie.tagline}} </p>
+                            <p class="movie_text" > Calificacion: <br> {{movie.vote_average}} / 10  </p>
+                        </div>
+                        <button class="btn btn-primary btn__back d-block ml-auto my-5" type="button" [routerLink]="['/'+returnTo, search ]" routerLinkActive="router-link-active"  >
+                            Regresar
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-
+<div class="main main__swip">
+    <div class="">
+        <app-posters
+            [configSwipper]="configMainA"
+            [movies]="populares">
+        </app-posters>
+    </div>
 </div>

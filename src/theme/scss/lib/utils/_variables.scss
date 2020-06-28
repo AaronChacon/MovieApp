@@ -20,6 +20,7 @@ $s34:           2.125rem;
 $s38:           2.375rem;
 $s42:           2.625rem;
 $s44:           2.750rem;
+$s50:           3.125rem;
     
 // Size fonts REM * OPTIONAL
 $s5:            .3125rem;
@@ -44,6 +45,7 @@ $yelow:              #FFBB00;
 $limon:              #1EC07A;
 $blue-dark:          #151F2E;
 $dradient-a:         linear-gradient(to right, #ee0979, #ff6a00);
+$dradient-b:         linear-gradient(90deg, rgba(21,31,46,1) 0%, rgba(238,9,121,1) 50%, rgba(255,106,0,1) 100%);
 
 // Background
 $bg-dark_blue:       #151F2E;
@@ -53,3 +55,18 @@ $bg-white:           #f7f7f7;
 
 //Boder
 $border-gray:        #707070;
+
+
+// FONT SIZE
+
+.text-s42{
+    font-size: $s42;
+}
+
+.text-s30{
+    font-size: $s30;
+}
+
+.text-s20{
+    font-size: $s20;
+}
