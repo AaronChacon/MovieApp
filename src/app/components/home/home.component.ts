@@ -99,9 +99,9 @@ export class HomeComponent implements OnInit {
 
   public configMainA: SwiperConfigInterface = {
     direction: 'horizontal',
-    slidesPerView: 5,
+    slidesPerView: 6,
     centeredSlides: true,
-    spaceBetween: 20,
+    spaceBetween: 25,
     autoplay: {
       delay: 15000,
       disableOnInteraction: false,
@@ -124,8 +124,8 @@ export class HomeComponent implements OnInit {
         spaceBetween: 20,
       },
       1440: {
-        slidesPerView: 5,
-        spaceBetween: 20,
+        slidesPerView: 6,
+        spaceBetween: 15,
       },
     },
     loop: true,
@@ -163,8 +163,8 @@ export class HomeComponent implements OnInit {
         spaceBetween: 20,
       },
       1440: {
-        slidesPerView: 5,
-        spaceBetween: 20,
+        slidesPerView: 6,
+        spaceBetween: 15,
       },
     },
     loop: true,

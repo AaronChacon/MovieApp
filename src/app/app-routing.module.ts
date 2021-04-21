@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'movie/:id/:pag/:search', component: MovieComponent },
   { path: '', pathMatch:'full', redirectTo: 'home'},
   { path: '**', pathMatch:'full', redirectTo: 'home'}
-];
+]; 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

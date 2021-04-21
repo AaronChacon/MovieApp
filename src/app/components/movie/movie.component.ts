@@ -56,7 +56,7 @@ export class MovieComponent implements OnInit {
 
   public configMainA: SwiperConfigInterface = {
     direction: 'horizontal',
-    slidesPerView: 6,
+    slidesPerView: 5,
     centeredSlides: true,
     spaceBetween: 20,
     autoplay: {

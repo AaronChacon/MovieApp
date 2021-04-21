@@ -58,10 +58,4 @@ export class MovieService {
                 .pipe(map(res => res))
   }
 
-
-
-
-  
-
-
 }
