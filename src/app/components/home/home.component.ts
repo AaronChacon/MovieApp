@@ -2,12 +2,11 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 
 import { 
-  SwiperComponent, 
-  SwiperDirective, 
   SwiperConfigInterface,
   SwiperScrollbarInterface, 
   SwiperPaginationInterface 
 } from 'ngx-swiper-wrapper';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -17,30 +16,43 @@ import {
 
 export class HomeComponent implements OnInit {
 
+  /* 
   cartelera: any;
   populares: any;
-  destacadas: any;
+  destacadas: any; 
+  */
+
+  cartelera$: Observable<any>;
+  populares$: Observable<any>;
+  destacadas$: Observable<any>;
 
   constructor( private _movieService: MovieService ) {
   
-    this._movieService.getEstrenos()
+    /* this._movieService.getEstrenos()
       .subscribe(data =>{
         this.cartelera = data;
         console.log(this.cartelera); 
-    })
+    }) */
 
-    this._movieService.getPopulares()
+    /* this._movieService.getPopulares()
       .subscribe(data =>{
         this.populares = data;
         console.log(this.populares);
-    })
+    }) */
 
-    this._movieService.getDestacadas()
+    /* this._movieService.getDestacadas()
       .subscribe(data =>{ 
         this.destacadas = data;
-        return data
         console.log(this.destacadas);
-    })
+        return data
+    }) */
+
+    this.cartelera$ = this._movieService.getEstrenos()
+
+    this.populares$ =this._movieService.getPopulares()
+    
+    this.destacadas$ = this._movieService.getDestacadas();
+    
 
   }
   
@@ -51,20 +63,6 @@ export class HomeComponent implements OnInit {
 
 
   //Swiper//
-
-  public slides = [
-    'https://picsum.photos/700/250/?image=27',
-    'https://picsum.photos/700/250/?image=22',
-    'https://picsum.photos/700/250/?image=61',
-    'https://picsum.photos/700/250/?image=23',
-    'https://picsum.photos/700/250/?image=24',
-    'https://picsum.photos/700/250/?image=26',
-    'https://picsum.photos/700/250/?image=41',
-    'https://picsum.photos/700/250/?image=28',
-    'https://picsum.photos/700/250/?image=21',
-    'https://picsum.photos/700/250/?image=20',
-    'https://picsum.photos/400/250/?image=75'
-];
 
   public configHeader: SwiperConfigInterface = {
     direction: 'horizontal',

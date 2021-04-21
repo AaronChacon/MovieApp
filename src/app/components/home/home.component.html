@@ -1,13 +1,14 @@
 <header class="header">
-  <section class="carrousel carrousel__container" *ngIf="cartelera">
+  <section class="carrousel carrousel__container" *ngIf="cartelera$ | async as data">
     
     <swiper class="swiper-container" [config]="configHeader">
-      <!-- <div *ngFor="let slide of slides; let i ='index' " class="swiper-slide"  -->
-      <div *ngFor="let cart of cartelera.results; let i ='index' " class="swiper-slide img-thumbnail img-fluid"
-      [routerLink]="['/movie', cart.id, 'home']" 
-      [ngStyle]="{'background-image': 'url('+( cart | movieImg ) +')' }"
+      <div 
+        *ngFor="let cart of data.results; let i ='index' " 
+        class="swiper-slide img-thumbnail img-fluid"
+        [routerLink]="['/movie', cart.id, 'home']" 
+        [ngStyle]="{'background-image': 'url('+( cart | movieImg ) +')' }"
       >
-        <div class="carrousel__info">
+        <div class="carrousel__info"> 
           <small class="carrousel_text">Top Movie App</small>
           <!-- <p class="carrousel_text" >Estrenos</p> -->
           <p class="carrousel_text--title text-truncate">
@@ -35,15 +36,24 @@
 <main class="main px-3 px-sm-0">
   
   <app-posters
+    *ngIf="populares$ | async"
     [titleSection]="'Populares'"
     [configSwipper]="configMainA"
-    [movies]="populares"
+    [movies]="populares$ | async"
   ></app-posters>
   
   <app-posters
+    *ngIf="destacadas$ | async"
+    [titleSection]="'Destacadas'"
+    [configSwipper]="configMainB"
+    [movies]="destacadas$ | async"
+  ></app-posters>
+
+  <!-- <app-posters
+    *ngIf="destacadas"
     [titleSection]="'Destacadas'"
     [configSwipper]="configMainB"
     [movies]="destacadas"
-  ></app-posters>
+  ></app-posters> -->
 
 </main>

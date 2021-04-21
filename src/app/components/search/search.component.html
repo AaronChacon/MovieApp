@@ -1,7 +1,7 @@
 <div class="main">
     <div class="container pt-5">
         <div class="col-12 col-md-10 col-lg-8 mx-auto">
-            <div class="form-group search__input__custom mt-5">
+            <div class="form-group search__input__custom mt-4">
                 <input 
                     type="text"
                     [(ngModel)]="searchMovieInput"
@@ -14,9 +14,9 @@
 
         <div class="col-12">
             <div class="card-deck py-4">
-                <div class="row">
-                    <ng-container *ngFor="let movie of _ms.moviesSearch; let i ='index'" >
-                        <div class="col-12 col-lg-6">
+                <div class="row w-100">
+                    <ng-container *ngIf="!loading" >
+                        <div class="col-12 col-lg-6" *ngFor="let movie of results; let i ='index'">
                             <div class="card mb-3 card__movie__search">
                                 <div class="row no-gutters">
                                   <div class="col-5 col-md-4 col-lg-4 d-flex">
@@ -41,9 +41,35 @@
                                   </div>
                                 </div>
                             </div>
-                        </div>
-
+                          </div>
+                          <div class="uiNoData" *ngIf="results.length === 0">
+                            <h2> Sin datos para mostrar </h2>
+                            <img class="img" src="assets/img/no-data.svg" alt="">
+                          </div>
                     </ng-container>
+
+                    <ng-container *ngIf="loading">
+                      <div class="col-12 col-lg-6" *ngFor="let item of loadArrays">
+                        <div class="card mb-3 card__movie__search">
+                            <div class="row no-gutters">
+                              <div class="col-5 col-md-4 col-lg-4 d-flex">
+                                <div class="skeleton skeleton_img"></div>
+                              </div> 
+                              <div class="col-7 col-md-8 col-lg-8 d-flex align-items-center">
+                                <div class="card-body">
+                                  <h5 class="card-title skeleton skeleton_title"></h5>
+                                  <p class="card-text skeleton skeleton_content"></p>
+                                  <p class="d-flex align-items-center justify-content-end card_more skeleton skeleton_btn"></p>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </ng-container>
+
+                    
+
+                    
                 </div>
             </div>
         </div>

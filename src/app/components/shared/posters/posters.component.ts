@@ -14,6 +14,9 @@ export class PostersComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if(this.movies){
+      console.log(this.movies);
+    }
   }
 
 }
