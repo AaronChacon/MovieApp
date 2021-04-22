@@ -13,15 +13,11 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 //components
 import { AppComponent } from './app.component';
-import { NavComponent } from './components/shared/nav/nav.component';
-import { FooterComponent } from './components/shared/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
-import { SearchComponent } from './components/search/search.component';
-import { MovieComponent } from './components/movie/movie.component';
-import { MovieImgPipe } from './pipes/movie-img.pipe';
-import { CategoriesPipe } from './pipes/categories.pipe';
-import { PosterImgPipe } from './pipes/poster-img.pipe';
-import { PostersComponent } from './components/shared/posters/posters.component';
+import { CommonModule } from '@angular/common';
+import { LayoutComponent } from './layout/layout.component';
+import { SharedModule } from './shared/shared.module';
+
+
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -32,24 +28,16 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    FooterComponent,
-    HomeComponent,
-    SearchComponent,
-    MovieComponent,
-    MovieImgPipe,
-    CategoriesPipe,
-    PosterImgPipe,
-    PostersComponent,
-    
+    LayoutComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     SwiperModule,
     FormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    SharedModule
   ],
   providers: [
     {

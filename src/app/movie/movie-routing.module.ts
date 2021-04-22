@@ -1,0 +1,21 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { MovieComponent } from './movie.component';
+
+
+const routes: Routes = [
+  {
+    path: ':id/:pag', 
+    component: MovieComponent
+  },
+  {
+    path: ':id/:pag/:search', 
+    component: MovieComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class MovieRoutingModule { }

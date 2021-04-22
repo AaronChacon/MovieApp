@@ -1,5 +1,4 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { MovieService } from '../../services/movie.service';
 
 import { 
   SwiperConfigInterface,
@@ -7,6 +6,7 @@ import {
   SwiperPaginationInterface 
 } from 'ngx-swiper-wrapper';
 import { Observable } from 'rxjs';
+import { MovieService } from '../core/services/movie.service';
 
 @Component({
   selector: 'app-home',
