@@ -8,6 +8,7 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SharedModule } from '../shared/shared.module';
     SwiperModule,
     FormsModule,
     HttpClientModule,
+    RouterModule,
     SharedModule
   ]
 })

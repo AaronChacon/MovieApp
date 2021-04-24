@@ -9,6 +9,7 @@ import {
   SwiperScrollbarInterface, 
   SwiperPaginationInterface 
 } from 'ngx-swiper-wrapper';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movie',
@@ -17,7 +18,8 @@ import {
 })
 export class MovieComponent implements OnInit {
 
-  movie:any;
+  //movie:any;
+  movie$:Observable<any>;
   returnTo:string = "";
   search:string = "";
   populares: any;
@@ -26,21 +28,23 @@ export class MovieComponent implements OnInit {
     public route:ActivatedRoute ) {
     
     this.route.params.subscribe(params =>{
-    console.log(params);
+      console.log(params);
 
-    this.returnTo = params['pag'];
+      this.returnTo = params['pag'];
 
-    if (params['search']) {
-      this.search = params['search']
-      
-    }
+      if (params['search']) {
+        this.search = params['search']
+        
+      }
 
-    this._ms.getMovie(params['id'])
-      .subscribe( movie => {
-        this.movie = movie 
-        console.log(movie)
+      /* this._ms.getMovie(params['id'])
+        .subscribe( movie => {
+          this.movie = movie 
+          console.log(movie)
 
-      })
+        }) */
+
+        this.movie$ = this._ms.getMovie(params['id'])
     })
 
     this._ms.getPopulares()

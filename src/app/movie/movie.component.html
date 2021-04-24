@@ -1,9 +1,9 @@
-<div class="main main__movie pb-5" *ngIf="movie" [ngStyle]="{'background-image': 'url('+( movie | movieImg ) +')' }">
+<div class="main main__movie pb-5" *ngIf="movie$ | async as movie" [ngStyle]="{'background-image': 'url('+( movie | movieImg ) +')' }">
 
     <div class="container py-5 mb-5 d-flex align-items-center justify-content-center" >
         <div class="row w-100 mb-5">
             <div class="col-12 d-block d-lg-none">
-                <h2 class="movie_title my-5" > {{movie.title}} </h2>
+                <h2 class="movie_title my-5 "> {{movie.title}} </h2>
             </div>
             <div class="col-9 col-md-5 col-lg-4 mx-auto d-flex align-items-center justify-content-center mb-5">
                 <img  class="img-fluid img__details"
@@ -32,12 +32,12 @@
     </div>
 </div>
 
-<div class="main main__movie pb-5" *ngIf="!movie">
+<div class="main main__movie pb-5" *ngIf="!(movie$ | async) as movie">
 
     <div class="container py-5 mb-5 d-flex align-items-center justify-content-center" >
         <div class="row w-100 mb-5 ">
             <div class="col-12 d-block d-lg-none skeleton">
-                <h2 class="movie_title my-5"> {{movie.title}} </h2>
+                <h2 class="movie_title my-5"></h2>
             </div>
             <div class="col-9 col-md-5 col-lg-4 mx-auto d-flex align-items-center justify-content-center mb-5">
                 <div class="skeleton skeleton-img">
