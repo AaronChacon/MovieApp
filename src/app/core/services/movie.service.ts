@@ -52,9 +52,21 @@ export class MovieService {
 
   getMovie(id:string){
     let url = `${this.urlMoviedb}/movie/${id}?api_key=${this.apikey}&language=es`;
-
     return this.HttpClient.get(url)
                 .pipe(map(res => res))
   }
+  
+  getReviews(id:string){
+    let url = `${this.urlMoviedb}/movie/${id}/reviews?api_key=${this.apikey}&language=es`;
+    return this.HttpClient.get(url)
+                .pipe(map(res => res))
+  }
+  
+  getUpcoming(){
+    let url = `${this.urlMoviedb}/movie/upcoming?api_key=${this.apikey}&language=es&page=1`;
+    return this.HttpClient.get(url)
+                .pipe(map(res => res))
+  }
+  
 
 }

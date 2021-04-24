@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'movie',
         loadChildren: () => import('./movie/movie.module').then(m => m.MovieModule)
       },
-      { path: 'roulette',
+      { path: 'releases',
         loadChildren: () => import('./roulette/roulette.module').then(m => m.RouletteModule)
       },
       /* 

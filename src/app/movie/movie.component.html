@@ -1,7 +1,7 @@
 <div class="main main__movie pb-5" *ngIf="movie$ | async as movie" [ngStyle]="{'background-image': 'url('+( movie | movieImg ) +')' }">
 
     <div class="container py-5 mb-5 d-flex align-items-center justify-content-center" >
-        <div class="row w-100 mb-5">
+        <div class="row w-100 mb-2">
             <div class="col-12 d-block d-lg-none">
                 <h2 class="movie_title my-5 "> {{movie.title}} </h2>
             </div>
@@ -22,11 +22,49 @@
                             <p class="movie_text" > {{movie.tagline}} </p>
                             <p class="movie_text" > Calificacion: <br> {{movie.vote_average}} / 10  </p>
                         </div>
+
                         <button class="btn btn-primary btn__back d-block ml-auto my-5" type="button" [routerLink]="['/'+returnTo, search ]" routerLinkActive="router-link-active"  >
                             Regresar
                         </button>
                     </div>
                 </div>
+            </div>
+            <div class="col-12 mb-5" *ngIf="(review$ | async) as review">
+                <div class="accordion mb-5 a-custom" id="accordionExample" *ngIf="review.results.length">
+                    <div class="card">
+                      <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link btn-block text-left text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Review
+                          </button>
+                        </h2>
+                      </div>
+                  
+                      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p>
+                                Escrito por {{review.results[0].author}}
+                            </p>
+                            <p>
+                                {{review.results[0].content}}
+                            </p>
+                            <p>
+                                {{review.results[0].created_at | date}}
+                            </p>
+
+                            <p>
+                                <a [href]="review.results[0].url" target="_blank">Ver reseña</a>
+                            </p>
+
+                            <code *ngIf="false">
+                                <pre>
+                                    {{review |json}}
+                                </pre>
+                            </code>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
         </div>
     </div>

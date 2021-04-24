@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from 'src/app/core/services/movie.service';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
 
 import { 
   SwiperComponent, 
@@ -10,6 +10,7 @@ import {
   SwiperPaginationInterface 
 } from 'ngx-swiper-wrapper';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie',
@@ -20,12 +21,16 @@ export class MovieComponent implements OnInit {
 
   //movie:any;
   movie$:Observable<any>;
+  review$:Observable<any>;
   returnTo:string = "";
   search:string = "";
   populares: any;
 
-  constructor( public _ms:MovieService, 
-    public route:ActivatedRoute ) {
+  constructor( 
+    public _ms:MovieService, 
+    private router: Router,
+    public route:ActivatedRoute 
+    ) {
     
     this.route.params.subscribe(params =>{
       console.log(params);
@@ -44,8 +49,9 @@ export class MovieComponent implements OnInit {
 
         }) */
 
-        this.movie$ = this._ms.getMovie(params['id'])
-    })
+        this.movie$ = this._ms.getMovie(params['id']);
+        this.review$ = this._ms.getReviews(params['id']);
+    });
 
     this._ms.getPopulares()
       .subscribe(data =>{
@@ -53,9 +59,17 @@ export class MovieComponent implements OnInit {
         console.log(this.populares);
     })
 
+    
+
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+  });
   }
 
   public configMainA: SwiperConfigInterface = {

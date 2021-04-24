@@ -1,37 +1,71 @@
 <div class="main">
-    <!-- <div class="container pt-5">
-        <div class="row">
-            <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
-                <h2 class="mt-4">
-                    Recommendation
-                </h2>
-            </div>
-        </div>
-    </div> -->
     <div class="container pt-5">
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-7">
-                <div class="mt-4">
-                    <div class="card p-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Unde possimus facilis vero ut quos pariatur quisquam 
-                        magnam incidunt voluptatem, optio est, id assumenda! 
-                        At molestiae eius fugiat velit labore ut.
-
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Unde possimus facilis vero ut quos pariatur quisquam 
-                        magnam incidunt voluptatem, optio est, id assumenda! 
-                        At molestiae eius fugiat velit labore ut.
-                    </div>
-                </div>
+            <div class="col-12 mx-auto text-center">
+                <h1 class="mt-4">
+                    Upcoming Releases
+                </h1>
             </div>
-            <div class="col-12 col-md-6 col-lg-5">
-                <div class="mt-4">
-                    <div class="card p-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Unde possimus facilis vero ut quos pariatur quisquam 
-                        magnam incidunt voluptatem, optio est, id assumenda! 
-                        At molestiae eius fugiat velit labore ut.
+
+
+            <div class="col-12">
+                <div class="card-deck py-4">
+                    <div class="row w-100">
+                        <ng-container *ngIf="!loading" >
+                            <div class="col-12 col-lg-6" *ngFor="let movie of results; let i ='index'">
+                                <div class="card mb-3 card__movie__search">
+                                    <div class="row no-gutters">
+                                      <div class="col-5 col-md-4 col-lg-4 d-flex">
+                                        <img [src]=" movie | posterImg" [alt]="movie.title" class="card-img img-fluid">
+                                      </div>
+                                      <div class="col-7 col-md-8 col-lg-8 d-flex align-items-center">
+                                        <div class="card-body">
+                                          <h5 class="card-title">{{movie.title}}</h5>
+                                          <p class="card-text">
+                                            {{movie.overview | slice:0:200}}
+                                          </p>
+    
+                                          <p class="d-flex align-items-center justify-content-end card_more" [routerLink]="['/movie', movie.id, 'releases']" >
+                                              Ver mas
+                                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-box-arrow-right ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M11.646 11.354a.5.5 0 0 1 0-.708L14.293 8l-2.647-2.646a.5.5 0 0 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
+                                                <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
+                                                <path fill-rule="evenodd" d="M2 13.5A1.5 1.5 0 0 1 .5 12V4A1.5 1.5 0 0 1 2 2.5h7A1.5 1.5 0 0 1 10.5 4v1.5a.5.5 0 0 1-1 0V4a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-1.5a.5.5 0 0 1 1 0V12A1.5 1.5 0 0 1 9 13.5H2z"/>
+                                              </svg>
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="uiNoData" *ngIf="results.length === 0">
+                                <h2> Sin datos para mostrar </h2>
+                                <img class="img" src="assets/img/no-data.svg" alt="">
+                              </div>
+                        </ng-container>
+    
+                        <ng-container *ngIf="loading">
+                          <div class="col-12 col-lg-6" *ngFor="let item of loadArrays">
+                            <div class="card mb-3 card__movie__search">
+                                <div class="row no-gutters">
+                                  <div class="col-5 col-md-4 col-lg-4 d-flex">
+                                    <div class="skeleton skeleton_img"></div>
+                                  </div> 
+                                  <div class="col-7 col-md-8 col-lg-8 d-flex align-items-center">
+                                    <div class="card-body">
+                                      <h5 class="card-title skeleton skeleton_title"></h5>
+                                      <p class="card-text skeleton skeleton_content"></p>
+                                      <p class="d-flex align-items-center justify-content-end card_more skeleton skeleton_btn"></p>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                        </ng-container>
+    
+                        
+    
+                        
                     </div>
                 </div>
             </div>
